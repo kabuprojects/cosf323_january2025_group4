@@ -1,0 +1,23 @@
+2025-03-13 17:06:39,022 - __main__ - INFO - Index page accessed
+2025-03-13 17:19:56,682 - __main__ - INFO - Index page accessed
+2025-03-13 17:24:11,732 - __main__ - INFO - Index page accessed
+2025-03-13 17:27:58,946 - __main__ - INFO - Index page accessed
+2025-03-13 17:31:34,183 - __main__ - INFO - Index page accessed
+2025-03-13 17:42:32,012 - __main__ - INFO - Index page accessed
+2025-03-13 17:59:44,319 - __main__ - INFO - Index page accessed
+2025-03-14 03:46:45,484 - __main__ - INFO - Index page accessed
+2025-03-14 03:57:25,867 - __main__ - INFO - Index page accessed
+2025-03-14 04:01:18,688 - __main__ - INFO - Index page accessed
+2025-03-14 04:02:44,589 - app - INFO - Index page accessed
+2025-03-14 04:06:11,464 - __main__ - INFO - Index page accessed
+2025-03-14 04:13:40,289 - __main__ - INFO - Index page accessed
+2025-03-14 04:13:53,678 - __main__ - INFO - User ken logged in successfully.
+2025-03-14 04:13:59,399 - __main__ - INFO - Dashboard accessed by ken
+2025-03-14 04:26:51,302 - __main__ - INFO - Index page accessed
+2025-03-14 04:32:39,437 - __main__ - INFO - Index page accessed
+2025-03-14 04:32:52,945 - __main__ - WARNING - Email not found
+2025-03-14 04:33:07,512 - __main__ - ERROR - Email failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-43d1fdda2dbsm1064715e9.2 - gsmtp')
+2025-03-14 04:33:07,513 - __main__ - INFO - Password reset link sent to user email
+2025-03-14 11:28:52,080 - __main__ - INFO - Index page accessed
+2025-03-14 11:30:08,045 - __main__ - INFO - User mkdjbbxoa@mozmail.com logged in successfully.
+2025-03-14 11:30:10,665 - __main__ - INFO - Dashboard accessed by mkdjbbxoa@mozmail.com
