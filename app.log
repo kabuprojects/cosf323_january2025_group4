@@ -18,6 +18,253 @@
 2025-03-14 04:32:52,945 - __main__ - WARNING - Email not found
 2025-03-14 04:33:07,512 - __main__ - ERROR - Email failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-43d1fdda2dbsm1064715e9.2 - gsmtp')
 2025-03-14 04:33:07,513 - __main__ - INFO - Password reset link sent to user email
-2025-03-14 11:28:52,080 - __main__ - INFO - Index page accessed
-2025-03-14 11:30:08,045 - __main__ - INFO - User mkdjbbxoa@mozmail.com logged in successfully.
-2025-03-14 11:30:10,665 - __main__ - INFO - Dashboard accessed by mkdjbbxoa@mozmail.com
+2025-03-15 10:42:41,676 - __main__ - INFO - Index page accessed
+2025-03-15 10:43:35,662 - __main__ - INFO - User trevor logged in successfully.
+2025-03-15 10:43:37,165 - __main__ - INFO - Dashboard accessed by trevor
+2025-03-15 10:59:31,198 - __main__ - INFO - Index page accessed
+2025-03-15 10:59:50,489 - __main__ - INFO - User ben logged in successfully.
+2025-03-15 10:59:53,043 - __main__ - INFO - Dashboard accessed by ben
+2025-03-15 11:27:35,276 - __main__ - INFO - Index page accessed
+2025-03-17 08:47:36,511 - __main__ - INFO - Index page accessed
+2025-03-17 08:48:50,975 - __main__ - INFO - User eliaso logged in successfully.
+2025-03-17 08:48:53,277 - __main__ - INFO - Dashboard accessed by eliaso
+2025-03-18 19:26:55,040 - __main__ - INFO - Index page accessed
+2025-03-18 19:27:10,698 - __main__ - INFO - User ben logged in successfully.
+2025-03-18 19:27:15,190 - __main__ - INFO - [EMAIL] Alert sent successfully!
+2025-03-18 19:27:18,405 - __main__ - INFO - Dashboard accessed by ben
+2025-03-19 02:49:36,097 - app - INFO - Index page accessed
+2025-03-19 02:49:53,616 - app - INFO - User ben logged in successfully.
+2025-03-19 02:50:00,312 - app - INFO - Dashboard accessed by ben
+2025-03-19 02:50:08,792 - app - ERROR - Exception on /api/system_logs [GET]
+Traceback (most recent call last):
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\insiderthreatsystem\app.py", line 271, in get_system_logs
+    logs = list(db.logs.find().sort('timestamp', -1).limit(10))  # Adjust collection if needed
+                ^^
+NameError: name 'db' is not defined
+2025-03-19 02:50:15,563 - app - ERROR - Exception on /api/windows_events [GET]
+Traceback (most recent call last):
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\insiderthreatsystem\app.py", line 284, in get_windows_events
+    events = list(db.windows_events.find().sort('timestamp', -1).limit(10))  # Adjust collection name if needed
+                  ^^
+NameError: name 'db' is not defined
+2025-03-19 02:51:24,404 - app - INFO - User logged out successfully
+2025-03-19 02:51:24,417 - app - INFO - Index page accessed
+2025-03-19 02:51:35,749 - app - INFO - User ben logged in successfully.
+2025-03-19 02:51:41,710 - app - INFO - Dashboard accessed by ben
+2025-03-19 02:58:49,538 - app - ERROR - Exception on /api/system_logs [GET]
+Traceback (most recent call last):
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\insiderthreatsystem\app.py", line 271, in get_system_logs
+    logs = list(db.logs.find().sort('timestamp', -1).limit(10))  # Adjust collection if needed
+                ^^
+NameError: name 'db' is not defined
+2025-03-19 03:09:57,034 - app - ERROR - Exception on /api/windows_events [GET]
+Traceback (most recent call last):
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\insiderthreatsystem\app.py", line 284, in get_windows_events
+NameError: name 'db' is not defined
+2025-03-19 03:10:23,655 - app - ERROR - Exception on /api/system_logs [GET]
+Traceback (most recent call last):
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\insiderthreatsystem\app.py", line 271, in get_system_logs
+    try:
+         
+NameError: name 'db' is not defined
+2025-03-19 03:10:51,337 - app - ERROR - Exception on /api/system_logs [GET]
+Traceback (most recent call last):
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\insiderthreatsystem\app.py", line 271, in get_system_logs
+    try:
+         
+NameError: name 'db' is not defined
+2025-03-19 03:11:45,708 - app - ERROR - Exception on /api/system_logs [GET]
+Traceback (most recent call last):
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\insiderthreatsystem\app.py", line 271, in get_system_logs
+    try:
+         
+NameError: name 'db' is not defined
+2025-03-19 03:14:25,351 - app - ERROR - Exception on /api/windows_events [GET]
+Traceback (most recent call last):
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\insiderthreatsystem\app.py", line 284, in get_windows_events
+    logger.error(f"Error fetching system logs: {e}")
+              ^^
+NameError: name 'db' is not defined
+2025-03-19 03:14:30,613 - app - ERROR - Exception on /api/windows_events [GET]
+Traceback (most recent call last):
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BENJA\insiderthreatsystem\app.py", line 284, in get_windows_events
+    logger.error(f"Error fetching system logs: {e}")
+              ^^
+NameError: name 'db' is not defined
+2025-03-19 03:29:05,098 - app - INFO - Index page accessed
+2025-03-19 03:29:15,009 - app - INFO - User ben logged in successfully.
+2025-03-19 03:29:18,824 - app - INFO - Dashboard accessed by ben
+2025-03-19 04:16:19,327 - app - INFO - Index page accessed
+2025-03-19 04:16:37,599 - app - INFO - User ben logged in successfully.
+2025-03-19 04:16:42,608 - app - INFO - Dashboard accessed by ben
+2025-03-19 04:21:11,312 - app - INFO - Dashboard accessed by ben
+2025-03-19 04:21:18,900 - app - INFO - Dashboard accessed by ben
+2025-03-19 04:34:36,260 - app - INFO - Index page accessed
+2025-03-19 05:09:54,807 - app - INFO - Index page accessed
+2025-03-19 05:10:43,425 - app - INFO - User ben logged in successfully.
+2025-03-19 05:10:48,095 - app - INFO - Dashboard accessed by ben
+2025-03-19 05:36:18,344 - app - INFO - Index page accessed
+2025-03-19 05:36:35,832 - app - INFO - User ben logged in successfully.
+2025-03-19 05:36:39,876 - app - INFO - Dashboard accessed by ben
+2025-03-19 05:47:22,313 - app - INFO - Index page accessed
+2025-03-19 05:47:33,277 - app - INFO - User ben logged in successfully.
+2025-03-19 05:47:45,955 - app - INFO - User ben logged in successfully.
+2025-03-19 05:47:50,555 - app - INFO - Dashboard accessed by ben
+2025-03-19 05:47:58,527 - app - INFO - Dashboard accessed by ben
+2025-03-19 06:00:14,455 - app - INFO - Index page accessed
+2025-03-19 06:00:31,624 - app - INFO - User ben logged in successfully.
+2025-03-19 06:00:38,339 - app - INFO - Dashboard accessed by ben
+2025-03-19 06:08:37,062 - app - INFO - Index page accessed
+2025-03-19 06:08:49,243 - app - INFO - User ben logged in successfully.
+2025-03-19 06:08:56,118 - app - INFO - Dashboard accessed by ben
+2025-03-19 08:40:14,967 - app - INFO - Index page accessed
+2025-03-19 08:40:35,941 - app - INFO - User ben logged in successfully.
+2025-03-19 08:40:41,506 - app - INFO - Dashboard accessed by ben
+2025-03-19 09:17:38,272 - app - INFO - Index page accessed
+2025-03-19 09:18:05,253 - app - INFO - User ben logged in successfully.
+2025-03-19 09:18:10,636 - app - INFO - Dashboard accessed by ben
+2025-03-19 09:18:21,420 - app - INFO - Dashboard accessed by ben
+2025-03-19 09:45:58,554 - app - INFO - User logged out successfully
+2025-03-19 09:45:58,562 - app - INFO - Index page accessed
+2025-03-19 09:46:11,965 - app - INFO - User logged out successfully
+2025-03-19 09:46:11,984 - app - INFO - Index page accessed
+2025-03-19 12:23:25,957 - __main__ - INFO - Index page accessed
+2025-03-19 12:23:31,724 - __main__ - INFO - User mkdjbbxoa@mozmail.com logged in successfully.
+2025-03-19 12:23:33,538 - __main__ - INFO - User mkdjbbxoa@mozmail.com logged in successfully.
+2025-03-19 12:23:37,895 - __main__ - INFO - Dashboard accessed by mkdjbbxoa@mozmail.com
+2025-03-19 12:23:37,982 - __main__ - INFO - Dashboard accessed by mkdjbbxoa@mozmail.com
