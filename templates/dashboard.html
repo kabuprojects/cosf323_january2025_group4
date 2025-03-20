@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insider Threat Detection Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding-top: 60px;
+    }
+
+    .table-container {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .threat-low { background-color: #d4edda; }
+    .threat-medium { background-color: #fff3cd; }
+    .threat-high { background-color: #f8d7da; }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">🚨 Insider Threat Detection Dashboard</h1>
+   
+    <div class="d-flex mb-3 justify-content-between">
+      <input type="text" id="searchInput" class="form-control w-50" placeholder="🔎 Search by message or source...">
+      <button class="btn btn-success" onclick="downloadCSV()">⬇️ Download CSV</button>
+    </div>
+
+    <div class="table-container">
+      <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>Timestamp</th>
+            <th>Source</th>
+            <th>Message</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody id="eventTable"></tbody>
+      </table>
+    </div>
+
+    <nav>
+      <ul class="pagination justify-content-center" id="pagination"></ul>
+    </nav>
+
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <h5>Threat Sources Breakdown</h5>
+        <canvas id="sourceChart"></canvas>
+      </div>
+      <div class="col-md-6">
+        <h5>Threat Activity Over Time</h5>
+        <canvas id="timeChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let eventsData = [];
+    let currentPage = 1;
+    const eventsPerPage = 10;
+
+    function fetchEvents() {
+      fetch('/api/events')
+        .then(response => response.json())
+        .then(data => {
+          eventsData = data;
+          renderTable();
+          renderCharts();
+        });
+    }
+
+    function renderTable() {
+      const table = document.getElementById('eventTable');
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+      const filteredEvents = eventsData.filter(event =>
+        event.message.toLowerCase().includes(searchQuery) ||
+        event.source.toLowerCase().includes(searchQuery)
+      );
+
+      const start = (currentPage - 1) * eventsPerPage;
+      const paginatedEvents = filteredEvents.slice(start, start + eventsPerPage);
+
+      table.innerHTML = '';
+      paginatedEvents.forEach(event => {
+        const threatClass = calculateThreatClass(event.message);
+        table.innerHTML += `
+          <tr class="${threatClass}">
+            <td>${new Date(event.timestamp).toLocaleString()}</td>
+            <td>${event.source}</td>
+            <td>${event.message}</td>
+            <td>${getThreatLabel(threatClass)}</td>
+          </tr>`;
+      });
+
+      renderPagination(filteredEvents.length);
+    }
+
+    function renderPagination(totalEvents) {
+      const totalPages = Math.ceil(totalEvents / eventsPerPage);
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+
+      for (let i = 1; i <= totalPages; i++) {
+        pagination.innerHTML += `
+          <li class="page-item ${i === currentPage ? 'active' : ''}">
+            <button class="page-link" onclick="changePage(${i})">${i}</button>
+          </li>`;
+      }
+    }
+
+    function changePage(page) {
+      currentPage = page;
+      renderTable();
+    }
+
+    function calculateThreatClass(message) {
+      if (message.includes("Failed login") || message.includes("USB Device")) return 'threat-high';
+      if (message.includes("cmd.exe") || message.includes("Visited Website")) return 'threat-medium';
+      return 'threat-low';
+    }
+
+    function getThreatLabel(threatClass) {
+      if (threatClass === 'threat-high') return 'High';
+      if (threatClass === 'threat-medium') return 'Medium';
+      return 'Low';
+    }
+
+    function renderCharts() {
+      // Source Chart (Pie)
+      const sourceCounts = {};
+      eventsData.forEach(e => { sourceCounts[e.source] = (sourceCounts[e.source] || 0) + 1; });
+      const sourceCtx = document.getElementById('sourceChart').getContext('2d');
+      new Chart(sourceCtx, {
+        type: 'pie',
+        data: {
+          labels: Object.keys(sourceCounts),
+          datasets: [{ data: Object.values(sourceCounts), backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff'] }]
+        }
+      });
+
+      // Time Chart (Line)
+      const timeCounts = {};
+      eventsData.forEach(e => {
+        const date = new Date(e.timestamp).toLocaleDateString();
+        timeCounts[date] = (timeCounts[date] || 0) + 1;
+      });
+      const timeCtx = document.getElementById('timeChart').getContext('2d');
+      new Chart(timeCtx, {
+        type: 'line',
+        data: {
+          labels: Object.keys(timeCounts),
+          datasets: [{
+            label: 'Events',
+            data: Object.values(timeCounts),
+            backgroundColor: '#36a2eb',
+            borderColor: '#36a2eb',
+            fill: false,
+            tension: 0.4
+          }]
+        }
+      });
+    }
+
+    function downloadCSV() {
+      let csv = "Timestamp,Source,Message,Threat Level\n";
+      eventsData.forEach(event => {
+        const threat = getThreatLabel(calculateThreatClass(event.message));
+        csv += `"${new Date(event.timestamp).toLocaleString()}","${event.source}","${event.message}","${threat}"\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'threat_events.csv';
+      a.click();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', () => {
+      currentPage = 1;
+      renderTable();
+    });
+
+    setInterval(fetchEvents, 10000); // Auto-refresh every 10 seconds
+    fetchEvents(); // Initial load
+  </script>
+</body>
+
+</html>
